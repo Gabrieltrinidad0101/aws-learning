@@ -4,8 +4,7 @@ Description: THIS IS A TEST
 Parameters:
   KeyPairName:
     Description: The name of the EC2 Key Pair to allow SSH access
-    Type: String 
-
+    Type: String
 
 Resources:
   server:
