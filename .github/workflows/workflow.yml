@@ -7,7 +7,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: aws
+    environment: AWS
     steps:
       - uses: actions/checkout@v3
       - name: Configure AWS Credentials
