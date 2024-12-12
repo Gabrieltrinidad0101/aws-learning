@@ -22,7 +22,7 @@ jobs:
           aws-region: us-east-1  
 
       - name: Deploy Infrastructure
-        uses: aws-actions/aws-cloudformation-github-deploy@v2
+        uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           stack-name: s3
           template-file: ../infrastructure/cloudFormation.yaml
