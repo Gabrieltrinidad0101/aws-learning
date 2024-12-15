@@ -5,4 +5,4 @@ Resources:
   S3CloudFormation:
     Type: AWS::S3::Bucket
     Properties: 
-      BucketName: S3CloudFormation
+      BucketName: s3-cloud-formation-01
