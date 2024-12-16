@@ -6,3 +6,38 @@ Resources:
     Type: AWS::S3::Bucket
     Properties: 
       BucketName: s3-cloud-formation-01
+
+  EC2LaunchTemplate:
+    Type: AWS::EC2::LaunchTemplate
+    Properties: 
+      LaunchTemplateName: EC2LaunchTemplate
+      LaunchTemplateData:
+        InstanceType: t2.micro
+        KeyName: test123
+        ImageId: ami-0453ec754f44f9a4a
+        SecurityGroupIds:
+          - !Ref EC2SecurityGroup
+        TagSpecifications:
+          - ResourceType: instance
+            Tags:
+              - Key: name
+                Value: instance-code
+        UserData: !Base64 |
+          #!/bin/bash
+          echo "Hello, AWS Free Tier!" > /var/www/html/index.html
+          python3 -m SimpleHTTPServer  8080
+
+  EC2SecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow HTTP and SSH access
+      VpcId: 	vpc-0d7e0c12c38943ac6
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CirdrIp: 0.0.0.0/0
