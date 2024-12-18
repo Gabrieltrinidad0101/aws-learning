@@ -10,7 +10,6 @@ Resources:
   EC2Instance:
     Type: AWS::EC2::Instance
     Properties:
-      InstanceName: only-ec2
       InstanceType: t2.micro
       ImageId: ami-0453ec754f44f9a4a
       KeyName: test1234
@@ -22,6 +21,9 @@ Resources:
           #!/bin/bash
           echo "Hello, AWS Free Tier!" > /index.html
           python3 -m SimpleHTTPServer  8080
+      Tags:
+        - Key: Name
+          Value: only-ec2
 
   EC2LaunchTemplate:
     Type: AWS::EC2::LaunchTemplate
