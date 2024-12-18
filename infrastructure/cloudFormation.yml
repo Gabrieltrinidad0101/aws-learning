@@ -20,7 +20,7 @@ Resources:
         Fn::Base64: !Sub |
           #!/bin/bash
           echo "Hello, AWS Free Tier!" > index.html
-          python3 -m SimpleHTTPServer 80
+          sudo python3 -m http.server 80
       Tags:
         - Key: Name
           Value: only-ec2
@@ -43,7 +43,7 @@ Resources:
         UserData: !Base64 |
           #!/bin/bash
           echo "Hello, AWS Free Tier!" > index.html
-          python3 -m SimpleHTTPServer 80
+          sudo python3 -m http.server 80
 
   EC2SecurityGroup:
     Type: AWS::EC2::SecurityGroup
