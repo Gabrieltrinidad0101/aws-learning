@@ -50,6 +50,7 @@ Resources:
     Properties:
       GroupDescription: Allow HTTP and SSH access
       VpcId: vpc-0d7e0c12c38943ac6
+      GroupName: EC2SecurityGroup
       SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: 22
