@@ -42,7 +42,7 @@ Resources:
                 Value: instance-code
         UserData: !Base64 |
           #!/bin/bash
-          echo "Hello, AWS Free Tier! 1234" > index.html
+          echo "Hello, AWS Free Tier! 12345" > index.html
           sudo python3 -m http.server 80
 
   EC2SecurityGroup:
