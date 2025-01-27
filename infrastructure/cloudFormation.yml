@@ -25,6 +25,7 @@ Resources:
         - Key: Name
           Value: only-ec2
 
+
   EC2LaunchTemplate:
     Type: AWS::EC2::LaunchTemplate
     Properties: 
